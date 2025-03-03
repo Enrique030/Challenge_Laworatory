@@ -1,0 +1,46 @@
+# Documento de Toma de Requisitos
+
+## 1. Introducción
+Este documento describe los requisitos para el desarrollo de una página web que funcione como un informe de ventas. La aplicación extraerá datos de una base de datos MySQL y los presentará de manera estructurada en una página HTML utilizando PHP.
+
+## 2. Objetivo del Proyecto
+El objetivo es desarrollar una página web en PHP que obtenga información de ventas desde una base de datos MySQL y la muestre de manera clara y ordenada. Además, se valorará la posibilidad de aplicar estilos CSS para mejorar la presentación y generar un informe en PDF (opcional).
+
+## 3. Requisitos Funcionales
+### 3.1. Base de Datos
+La base de datos debe contener al menos las siguientes tablas:
+
+#### Tabla 'empresas'
+- 'id' (INT, PRIMARY KEY, AUTO_INCREMENT)
+- 'nombre' (VARCHAR)
+
+#### Tabla 'ventas'
+- 'id' (INT, PRIMARY KEY, AUTO_INCREMENT)
+- 'empresa_id' (INT, FOREIGN KEY -> empresas.id)
+- 'numero_factura' (VARCHAR)
+- 'fecha_venta' (DATE)
+- 'comprador' (VARCHAR)
+- 'articulos_vendidos' (TEXT)
+- 'valor_total' (DECIMAL)
+
+Debe incluir al menos 20 registros en la tabla 'ventas' para poder generar el informe.
+
+### 3.2. Conexión y Obtención de Datos
+- La aplicación debe conectarse a la base de datos utilizando PDO o MySQLi.
+- Debe implementar un manejo adecuado de errores en la conexión y la consulta de datos.
+- Se debe extraer la información de ventas y organizarla en una estructura lógica.
+
+### 3.3. Interfaz Web
+- La información obtenida debe mostrarse en una página PHP con HTML bien estructurado.
+- Debe contener encabezados claros y secciones bien definidas.
+- Se valorará la inclusión de estilos CSS sin frameworks para mejorar la presentación.
+
+## 4. Requisitos No Funcionales
+- El código debe ser limpio, modular y fácil de mantener.
+- Se debe considerar la escalabilidad para futuras mejoras.
+- La solución debe ser segura en cuanto a manejo de datos y conexiones a la base de datos.
+
+## 5. Posibles Extensiones
+- Generación de informes en PDF.
+- Inclusión de filtros o búsquedas en el informe.
+- Implementación de autenticación para restringir el acceso a los informes.'
