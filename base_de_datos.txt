@@ -1,0 +1,52 @@
+-- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS laworatory_db;
+USE laworatory_db;
+
+-- Crear la tabla de empresas
+CREATE TABLE IF NOT EXISTS empresas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL
+);
+
+-- Crear la tabla de ventas
+CREATE TABLE IF NOT EXISTS ventas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    empresa_id INT,
+    numero_factura VARCHAR(50) NOT NULL,
+    fecha_venta DATE NOT NULL,
+    comprador VARCHAR(255) NOT NULL,
+    articulos_vendidos TEXT NOT NULL,
+    valor_total DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (empresa_id) REFERENCES empresas(id) ON DELETE CASCADE
+);
+
+-- Insertar datos en la tabla de empresas
+INSERT INTO empresas (nombre) VALUES
+('Empresa A'),
+('Empresa B'),
+('Empresa C'),
+('Empresa D'),
+('Empresa E');
+
+-- Insertar datos en la tabla de ventas
+INSERT INTO ventas (empresa_id, numero_factura, fecha_venta, comprador, articulos_vendidos, valor_total) VALUES
+(1, 'FAC001', '2024-03-01', 'Cliente 1', 'Producto A, Producto B', 150.00),
+(1, 'FAC002', '2024-03-02', 'Cliente 2', 'Producto C', 75.50),
+(2, 'FAC003', '2024-03-03', 'Cliente 3', 'Producto D, Producto E', 220.30),
+(2, 'FAC004', '2024-03-04', 'Cliente 4', 'Producto F', 90.00),
+(3, 'FAC005', '2024-03-05', 'Cliente 5', 'Producto G, Producto H', 180.75),
+(3, 'FAC006', '2024-03-06', 'Cliente 6', 'Producto I', 60.25),
+(4, 'FAC007', '2024-03-07', 'Cliente 7', 'Producto J, Producto K', 300.00),
+(4, 'FAC008', '2024-03-08', 'Cliente 8', 'Producto L', 50.00),
+(5, 'FAC009', '2024-03-09', 'Cliente 9', 'Producto M, Producto N', 200.90),
+(5, 'FAC010', '2024-03-10', 'Cliente 10', 'Producto O', 99.99),
+(1, 'FAC011', '2024-03-11', 'Cliente 11', 'Producto P, Producto Q', 175.40),
+(2, 'FAC012', '2024-03-12', 'Cliente 12', 'Producto R', 80.00),
+(3, 'FAC013', '2024-03-13', 'Cliente 13', 'Producto S, Producto T', 250.60),
+(4, 'FAC014', '2024-03-14', 'Cliente 14', 'Producto U', 110.00),
+(5, 'FAC015', '2024-03-15', 'Cliente 15', 'Producto V, Producto W', 190.45),
+(1, 'FAC016', '2024-03-16', 'Cliente 16', 'Producto X', 55.75),
+(2, 'FAC017', '2024-03-17', 'Cliente 17', 'Producto Y, Producto Z', 240.30),
+(3, 'FAC018', '2024-03-18', 'Cliente 18', 'Producto AA', 70.90),
+(4, 'FAC019', '2024-03-19', 'Cliente 19', 'Producto BB, Producto CC', 130.50),
+(5, 'FAC020', '2024-03-20', 'Cliente 20', 'Producto DD', 95.25);
